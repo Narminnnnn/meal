@@ -1,0 +1,148 @@
+footer {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 30px;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 0; */
+}
+
+.containerFooter {
+    padding: 30px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.upFooter {
+    padding: 30px;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about {
+    width: 40%;
+    padding-left: 10px;
+}
+
+.topicName {
+    font-size: 20px;
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.footerAbout {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Open Sans", Arial, sans-serif;
+    line-height: 1.8;
+    font-weight: 300;
+    color: gray;
+
+}
+
+.read {
+    margin-top: 30px;
+    border: 2px solid #ff7a5c;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ff7a5c;
+    background-color: transparent;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+
+    &:hover {
+        background-color: #ff7a5c;
+        color: black;
+
+    }
+}
+
+.iconSocial {
+    display: flex;
+    
+    .nameTopic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .tripad{
+            font-size: 32px;
+        }
+
+        li {
+            font-size: 24px;
+            color: #fff;
+        }
+    }
+}
+
+.servive {
+    width: 40%;
+}
+
+.follow {
+    width: 50%;
+}
+.emailFooter{
+    width: 20%;
+    background-color: #fff;
+    border: 1px solid #fff;
+    position: absolute;
+    .footerEmail{
+        font-size: 1rem;
+        width: 80%;
+        outline: none;
+        border: none;
+        background-color: transparent;
+    }
+    .iconEmail{
+        position: relative;
+        right: 10px;
+        color: black;
+        background-color: red;
+    }
+}
+.end{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Open Sans", Arial, sans-serif;
+    line-height: 1.8;
+    font-weight: 300;
+    color: gray;
+    .heart{
+        color:#dc3545;
+    }
+    .colorib{
+        color: #ff7a5c;
+    }
+}
+
+ @media (min-width: 600px) and (max-width: 992px){
+    .upFooter {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+       
+      }
+      /* telefon ucun */
+       @media (min-width: 280px) and (max-width: 600px){
+        .upFooter {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        } }
