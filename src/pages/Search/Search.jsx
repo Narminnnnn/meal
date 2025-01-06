@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
-import Header from "../../Components/Header/Header";
+// import Header from "../../Components/Header/Header";
 import { CiSearch } from "react-icons/ci";
+import { IoHome } from "react-icons/io5";
 import axios from "axios";
 
 const Search = () => {
@@ -42,19 +43,21 @@ const Search = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <section className="productSection">
+        <div className="home">
+          <a href="./Components/Header/Header">
+            <IoHome />
+          </a>
+        </div>
         <h2 className="partName">Search Product</h2>
-        <form
-          action="#"
-          onSubmit={(e) => e.preventDefault()} 
-        >
+        <form action="#" onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
             className="searchInp"
             placeholder="Find something..."
             value={searchQuery}
-            onChange={handleSearch} 
+            onChange={handleSearch}
           />
           <CiSearch />
         </form>

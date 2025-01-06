@@ -17,7 +17,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       <Footer />
-    </Glo>
+    </GlobalProvider>
   );
 };
 

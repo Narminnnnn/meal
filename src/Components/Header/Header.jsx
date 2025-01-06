@@ -7,6 +7,9 @@ import { CiSearch } from "react-icons/ci";
 
 
 
+
+
+
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,15 +36,16 @@ const Header = () => {
   return (
     <header className={scrolled ? "header scrolled" : "header"}>
       <div className="containerHeader">
+        
         <div className="iconM">
           <p>
             <a href="">M</a>
           </p>
         </div>
         <div className="search">
-                    <CiSearch  className="searchIcon"/>
-          
-               {/* <Search/> */}
+          <a href="../../pages/Search/Search">
+            <CiSearch className="searchIcon" />
+          </a>
         </div>
         <div className="menuIcon" onClick={toggleMenu}>
           <IoIosMenu />
