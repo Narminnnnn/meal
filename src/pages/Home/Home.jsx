@@ -5,22 +5,35 @@ import { IoPerson } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
 import { MdOutlinePhone } from "react-icons/md";
 import { useEffect, useState } from "react";
+import { CiSearch } from "react-icons/ci";
 import axios from "axios";
 const Home = () => {
   const [data, setData] = useState([]);
-
+  const [loading, setLoading] = useState(true); 
+  const [page, setPage]=useState(1)
+  const limit =2;
   const visibility = async () => {
     try {
-      let res = await axios.get("https://dummyjson.com/recipes");
-      setData(res.data.recipes);
+     
+      let res = await axios.get(`https://dummyjson.com/recipes?page=${page}&limit=${limit}`);
+     setTimeout(() => {
+       setData((prevData)=>[...prevData, ...res.data.recipes]);
+       setLoading(false);
+       
+      
+     }, 2000);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     visibility();
-  }, []);
+  }, [page]);
+  const loadMore=()=>{
+    setPage((prevPage)=>prevPage+1)
+  }
   return (
     <>
       <section className="sectionOne">
@@ -135,32 +148,35 @@ const Home = () => {
               </li>
             </ul>
           </div>
-         <div className="axios-boxs">
-          {data.map((item)=>(
-            <div className="axios-box"  key={item.id}>
-            <div className="cart">
-              <div className="image">
-                <img
-                  src={item.image}
-                  alt=""
-                />
-              </div>
-              <div className="cartText">
-                <h3 className="cartName">{item.name}</h3>
-                <p className="cartAbout">
-                  {item.instructions}
-                </p>
-              </div>
-              <div className="price">
-                <p className="dollar">{item.rating} </p>
-              </div>
-            </div>
+          <div className="search">
+            <button className="btnSearch">
+             
+              <a href="/search">
+       
+              Search something...  <CiSearch className="searchIcon" />
+              </a>
+            </button>
           </div>
-          ))
+          <div className="axios-boxs">
+            {loading ? (<img src={"https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"} alt="loading..." />) :(data.map((item) => (
+              <div className="axios-box" key={item.id}>
+                <div className="cart">
+                  <div className="image">
+                    <img src={item.image} alt="" />
+                  </div>
+                  <div className="cartText">
+                    <h3 className="cartName">{item.name}</h3>
+                    <p className="cartAbout">{item.instructions}</p>
+                  </div>
+                  <div className="price">
+                    <p className="dollar">{item.rating} </p>
+                  </div>
+                </div>
+              </div>
+            )))}
+          </div>
 
-          }
-         
-         </div>
+          <button className="more" onClick={loadMore}> More than</button>
         </div>
       </section>
 

@@ -172,6 +172,32 @@
     align-items: center;
 }
 
+.btnSearch {
+    background-color: #000;
+    border-radius: 5px 0 5px 0;
+    border: #000;
+    transition: 2s;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+
+    a {
+
+        color: #fff;
+    }
+
+    &:hover {
+        background-color: #e5664b;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        a {
+
+            /* color: #000; */
+        }
+    }
+}
+
 .meal {
     display: flex;
     justify-content: center;
@@ -256,82 +282,99 @@
     }
 }
 
+.more {
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #000;
+    color: white;
+    font-size: 1rem;
+    border: 2px solid #000;
+    transition: 2s;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    &:hover {
+        background-color: #e5664b;
+    }
+}
+
 /* 4-cu Section */
 
 .sectionFour {
     width: 100%;
     display: flex;
     justify-content: center;
-  }
-  
-  .containerSecFour {
+}
+
+.containerSecFour {
     width: 60%;
-  }
-  
-  .text .find {
+}
+
+.text .find {
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .forum {
+}
+
+.forum {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
-  }
-  
-  .formPart {
+}
+
+.formPart {
     display: flex;
     gap: 15px;
-  }
-  
-  .inputGroup {
+}
+
+.inputGroup {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 5px;
-  }
-  
-  .inp {
+}
+
+.inp {
     position: relative;
     display: flex;
     align-items: center;
-  }
-  
-  .inp .icon {
+}
+
+.inp .icon {
     position: absolute;
     right: 10px;
     color: #495057;
-  }
-  
-  .inp input {
+}
+
+.inp input {
     width: 100%;
     padding: 10px 10px 10px 35px;
     font-size: 1rem;
     border: 2px solid #cccccc;
     border-radius: 4px;
-  }
-  
-  .inp input:focus {
+}
+
+.inp input:focus {
     border-color: #ff7a5c;
     outline: none;
-  }
-  
-  .message .control {
+}
+
+.message .control {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
     border: 2px solid #cccccc;
     border-radius: 4px;
-    resize:vertical;
-  }
-  
-  .message .control:focus {
+    resize: vertical;
+}
+
+.message .control:focus {
     border-color: #ff7a5c;
     outline: none;
-  }
-  
-  .submitButton {
+}
+
+.submitButton {
     align-self: center;
     padding: 10px 20px;
     font-size: 1rem;
@@ -340,32 +383,37 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .submitButton:hover {
+}
+
+.submitButton:hover {
     background-color: #e5664b;
-  }
+}
+
 /* tablet ucun */
-  @media (min-width: 600px), (max-width: 992px){
-.pictureAndImages {
-    display: flex;
-    flex-wrap: wrap;
-}
-.part{
-    margin: 0 auto;
-
-}
-
-  }
-  /* telefon ucun */
-  @media (min-width: 280px), (max-width: 600px){
+@media (min-width: 600px),
+(max-width: 992px) {
     .pictureAndImages {
         display: flex;
         flex-wrap: wrap;
     }
-    .part{
+
+    .part {
         margin: 0 auto;
-        }
-    
-      }
-  
+
+    }
+
+}
+
+/* telefon ucun */
+@media (min-width: 280px),
+(max-width: 600px) {
+    .pictureAndImages {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .part {
+        margin: 0 auto;
+    }
+
+}

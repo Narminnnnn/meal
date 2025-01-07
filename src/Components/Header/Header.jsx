@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
+
 
 
 
@@ -42,11 +42,7 @@ const Header = () => {
             <a href="">M</a>
           </p>
         </div>
-        <div className="search">
-          <a href="../../pages/Search/Search">
-            <CiSearch className="searchIcon" />
-          </a>
-        </div>
+       
         <div className="menuIcon" onClick={toggleMenu}>
           <IoIosMenu />
         </div>

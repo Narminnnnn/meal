@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
-// import Header from "../../Components/Header/Header";
 import { CiSearch } from "react-icons/ci";
 import { IoHome } from "react-icons/io5";
 import axios from "axios";
 
 const Search = () => {
-  const [searchQuery, setSearchQuery] = useState(""); 
+  const [search, setSearch] = useState(""); 
   const [data, setData] = useState([]); 
   const [filteredData, setFilteredData] = useState([]); 
   const [loading, setLoading] = useState(false); 
 
- 
-  const fetchData = async () => {
+  const getApi = async () => {
     setLoading(true); 
     try {
       const res = await axios.get("https://dummyjson.com/recipes");
-      setData(res.data.recipes); 
-      setFilteredData(res.data.recipes); 
-      setLoading(false); 
+      setTimeout(() => {
+        setData(res.data.recipes); 
+        setFilteredData(res.data.recipes); 
+        setLoading(false); 
+      }, 1000);
     } catch (error) {
       console.error("Error fetching data:", error);
       setLoading(false); 
@@ -26,45 +26,64 @@ const Search = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    getApi();
   }, []);
-
 
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase(); 
-    setSearchQuery(value); 
+    setSearch(value); 
 
-    
-    const filtered = data.filter((item) =>
-      item.name.toLowerCase().includes(value)
-    );
-    setFilteredData(filtered);
+    if (value !== "a-z" && value !== "z-a") {
+      const filtered = data.filter((item) =>
+        item.name.toLowerCase().includes(value)
+      );
+      setFilteredData(filtered);
+    }
+  };
+
+  const handleSort = (order) => {
+    let sorted = [...data];
+    if (order === "a-z") {
+      sorted.sort((a, b) => a.name.localeCompare(b.name)); // A-Z sıralama
+    } else if (order === "z-a") {
+      sorted.sort((a, b) => b.name.localeCompare(a.name)); // Z-A sıralama
+    }
+    setFilteredData(sorted);
   };
 
   return (
     <>
-      {/* <Header /> */}
       <section className="productSection">
-        <div className="home">
-          <a href="./Components/Header/Header">
-            <IoHome />
-          </a>
+        <div className="combineSearch">
+          <div className="home">
+            <button className="homebtn">
+              <a href="/"><IoHome /> </a>
+            </button>
+          </div>
+          <div className="textProduct">
+            <h2 className="partName">Search Product</h2>
+          </div>
         </div>
-        <h2 className="partName">Search Product</h2>
+
         <form action="#" onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
             className="searchInp"
             placeholder="Find something..."
-            value={searchQuery}
+            value={search}
             onChange={handleSearch}
           />
           <CiSearch />
         </form>
+<div className="sortAZ">
+
+        <button className="sort" onClick={() => handleSort("a-z")}>A-Z</button>
+        <button className="sort" onClick={() => handleSort("z-a")}>Z-A</button>
+</div>
 
         <div className="containerSearch">
           {loading ? (
-            <p>Loading...</p>
+            <img src={"https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"} alt="loading..." />
           ) : filteredData.length > 0 ? (
             <div className="axios-boxs">
               {filteredData.map((item) => (
